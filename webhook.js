@@ -11,15 +11,19 @@ app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
   
   req.on('data',(data) => {
-    const parsedData = JSON.parse(data)
-    res.send({
-      "text": `You sent the message: >>>${parsedData.message}<<<`
-    });
+    if(data){
+      const parsedData = JSON.parse(data);
+      res.send({
+        "text": `You sent the message: >>>${parsedData.message}<<<`
+      });
+    }
+    else{
+      res.send({
+        "message": 'No message has been received!'
+      });
+    }
   })
 
-  res.send({
-    "text": `No message was received!`
-  });
   console.error("[ ERROR ] - [204] - Message is empty!");
 
   console.log("----------------END----------------");
