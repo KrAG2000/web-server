@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 });
 
 // Define the API endpoint.
-app.post('/webhook', async (req, res) => {
+app.post('/webhook', (req, res) => {
   // Get the message from the request body.
   const message = req.body.message;
 
