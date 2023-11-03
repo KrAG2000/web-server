@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
 
-  const message = req.body;
+  const message = req.message;
     if(message != "" || message != {}){
       console.log(message);
       res.send({
