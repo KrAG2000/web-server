@@ -4,29 +4,24 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname+"/index.html");
-  console.log("[INFO] - [200] - GET Successful!");
+  console.log("[INFO] - [200] - Successful!");
 });
 
-app.post('/webhook', async (req, res) => {
+app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
-
-  let parsedData;
-  try {
-    const data = await req.buffer();
-    parsedData = JSON.parse(data);
-  } 
   
-  catch (error) {
-    console.error("[ ERROR ] - [400] - Invalid JSON body!");
-    res.status(400).json({
-      "text": `Invalid JSON body!`
+  req.on('data',(data) => {
+    const parsedData = JSON.parse(data)
+    res.send({
+      "text": `You sent the message: >>>${parsedData.message}<<<`
     });
-    return;
-  }
+  })
 
-  res.status(200).json({
-    "text": `You sent the message: >>>${parsedData}<<<`
+  res.send({
+    "text": `No message was received!`
   });
+  console.error("[ ERROR ] - [204] - Message is empty!");
+
   console.log("----------------END----------------");
 });
 
