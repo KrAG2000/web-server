@@ -11,13 +11,16 @@ app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
 
   const message = req.message;
-    if(message != "" || message != {}){
+    if(message){
       console.log(message);
       res.send({
-        text: `You sent the message: ${message}`
+        "text": `You sent the message: ${message}`
       });
     }
     else{
+      res.send({
+        "text": `No message was received!`
+      });
       console.error("[ ERROR ] - [204] - Message is empty!");
     }
 
