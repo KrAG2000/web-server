@@ -7,17 +7,17 @@ app.get("/", (req, res) => {
   console.log("Rnning");
 });
 
-// Define the API endpoint.
 app.post('/webhook', (req, res) => {
-  // Get the message from the request body.
-  const message = req.body.message;
-
-  // // Send a response to Chatfuel.
-  res.send({
-    text: `You sent the message: ${message}`
-  });
-  console.log(req.body);
+  const message = req.body;
+  if(message){
+    res.send({
+      text: `You sent the message: ${message}`
+    });
+    console.log(message);
+  }
+  else{
+    console.log(Message is empty!); 
+  }
 });
 
-// Start the server.
 app.listen(3000);
