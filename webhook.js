@@ -2,6 +2,11 @@ const express = require('express');
 // const port = process.env.PORT || 9999;
 const app = express();
 
+app.get("/", (req, res) => {
+  console.log("Rnning");
+  res.sendFile(__dirname+"/index.html");
+});
+
 // Define the API endpoint.
 app.post('/webhook', async (req, res) => {
   // Get the message from the request body.
