@@ -9,17 +9,20 @@ app.get("/", (req, res) => {
 
 app.post('/webhook', (req, res) => {
   const message = req.body;
-  if(message){
-    res.send({
+  try {
+    res.statusCode(201).send({
       text: `You sent the message: ${message}`
     });
-    console.log(message);
+  } catch (error) {
+    res.statusCode(204).send("[ ERROR ] - Message is empty!");
+  }
+  if(message){
   }
   else{
-    console.log("Message is empty!"); 
+
   }
 });
 
 app.listen(port, () => {
-  console.log("Listening to server successful!");
+  console.log(`[ INFO ] - Listening to ${port} server successful!`);
 });
