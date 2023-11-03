@@ -34,13 +34,7 @@ app.use(cors({
 }));
 
 app.post('/webhook', async (req, res) => {
-  console.log("Post request coming!");
-  console.log("Req", req);
   const profileData = req.body;
-  console.log("Profile Data", profileData);
-  // if (profileData) return;
-  // else {
-
   // Validate the data against the schema
   const validationResult = await schema.validate(profileData);
 
@@ -56,8 +50,6 @@ app.post('/webhook', async (req, res) => {
         intent: 'example_intent',
       },
     });
-
-    console.log("Response: ", response);
 
     if (response.statusCode >= 200 && response.statusCode < 400) {
       res.send('Success: Data sent to Unomi server!');
