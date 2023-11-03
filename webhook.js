@@ -3,8 +3,8 @@ const express = require('express');
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log("Rnning");
   res.sendFile(__dirname+"/index.html");
+  console.log("Rnning");
 });
 
 // Define the API endpoint.
@@ -13,9 +13,9 @@ app.post('/webhook', (req, res) => {
   const message = req.body.message;
 
   // // Send a response to Chatfuel.
-  // res.send({
-  //   text: `You sent the message: ${message}`
-  // });
+  res.send({
+    text: `You sent the message: ${message}`
+  });
   console.log(req.body);
 });
 
