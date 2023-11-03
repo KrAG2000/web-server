@@ -1,5 +1,5 @@
 const express = require('express');
-const port = process.env.PORT || 9999;
+// const port = process.env.PORT || 9999;
 const app = express();
 
 // Define the API endpoint.
