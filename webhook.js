@@ -8,19 +8,19 @@ app.get("/", (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-  const message = req.body;
-  try {
-    res.statusCode(201).send({
-      text: `You sent the message: ${message}`
-    });
-  } catch (error) {
-    console.error("[ ERROR ] - [204] - Message is empty!");
-  }
-  if(message){
-  }
-  else{
+  console.log("----------------START----------------");
 
-  }
+  const message = req.body;
+    if(message != "" || message != {}){
+      res.statusCode(201).send({
+        text: `You sent the message: ${message}`
+      });
+    }
+    else{
+      console.error("[ ERROR ] - [204] - Message is empty!");
+    }
+
+  console.log("----------------END----------------");
 });
 
 app.listen(port, () => {
