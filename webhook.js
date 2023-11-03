@@ -25,7 +25,7 @@ app.post('/webhook', async (req, res) => {
   }
 
   res.status(200).json({
-    "text": `You sent the message: >>>${parsedData.message}<<<`
+    "text": `You sent the message: >>>${parsedData}<<<`
   });
   console.log("----------------END----------------");
 });
