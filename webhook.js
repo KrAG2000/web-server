@@ -14,7 +14,7 @@ app.post('/webhook', (req, res) => {
     if(data){
       const parsedData = JSON.parse(data);
       res.send({
-        "text": `You sent the message: >>>${parsedData.message}<<<`
+        "text": `You sent the message: >>>${parsedData}<<<`
       });
     }
     else{
