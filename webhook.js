@@ -4,7 +4,7 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname+"/index.html");
-  console.log("Rnning");
+  console.log("[INFO] - [200] - Successful!");
 });
 
 app.post('/webhook', (req, res) => {
@@ -14,7 +14,7 @@ app.post('/webhook', (req, res) => {
       text: `You sent the message: ${message}`
     });
   } catch (error) {
-    res.statusCode(204).send("[ ERROR ] - Message is empty!");
+    console.error("[ ERROR ] - [204] - Message is empty!");
   }
   if(message){
   }
@@ -24,5 +24,5 @@ app.post('/webhook', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`[ INFO ] - Listening to ${port} server successful!`);
+  console.log(`[ INFO ] - [200] - Listening to ${port} server successful!`);
 });
