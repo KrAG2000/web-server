@@ -1,5 +1,5 @@
 const express = require('express');
-// const port = process.env.PORT || 9999;
+const port = process.env.PORT || 9999;
 const app = express();
 
 app.get("/", (req, res) => {
@@ -20,4 +20,6 @@ app.post('/webhook', (req, res) => {
   }
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log("Listening to server successful!");
+});
