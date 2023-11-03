@@ -16,7 +16,7 @@ app.post('/webhook', (req, res) => {
     console.log(message);
   }
   else{
-    console.log(Message is empty!); 
+    console.log("Message is empty!"); 
   }
 });
 
