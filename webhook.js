@@ -12,6 +12,7 @@ app.post('/webhook', (req, res) => {
 
   const message = req.body;
     if(message != "" || message != {}){
+      console.log(message);
       res.send({
         text: `You sent the message: ${message}`
       });
