@@ -12,10 +12,11 @@ app.post('/webhook', async (req, res) => {
   // Get the message from the request body.
   const message = req.body.message;
 
-  // Send a response to Chatfuel.
-  res.send({
-    text: `You sent the message: ${message}`
-  });
+  // // Send a response to Chatfuel.
+  // res.send({
+  //   text: `You sent the message: ${message}`
+  // });
+  console.log(req.body);
 });
 
 // Start the server.
