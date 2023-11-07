@@ -7,6 +7,5 @@
 }
 .limegreen{
     color: lime;
-    visibility: hidden;
-
+    display: none;
 }

@@ -11,14 +11,12 @@
 <body>
     <div class="limegreen">Hello there I'm lime, a very pretty color that will soothe your eyes in no time.</div>
     <div class="red">Hello there I'm red, a pretty bright color that will burn your eyes in no time.</div>
-    <script 
-        id="6548c258ee34ac77d3b513c2" 
-        src="https://dashboard.chatfuel.com/integration/entry-point.js" 
-        async defer>
-    </script>
-    <script>
-        document.ready(() => {
-            document.getElementsByClassName("limegreen")[0].style = "visibility: visible";
+
+    <script id="6548c258ee34ac77d3b513c2" src="https://dashboard.chatfuel.com/integration/entry-point.js" async defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const script2 = document.createElement('script');
+            script2.src = 'script2.js';
+            document.body.appendChild(script2);
         });
     </script>
 
