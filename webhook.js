@@ -6,6 +6,10 @@ const port = process.env.PORT || 9999;
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 function generateUUID() {
   let id = '';
   for (let i = 0; i < 24; i++) {
