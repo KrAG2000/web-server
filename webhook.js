@@ -1,10 +1,12 @@
 const axios = require('axios');
+const path = require('path');
 const unomiUrl = 'http://localhost:8181/cxs';
 const express = require('express');
 
 const port = process.env.PORT || 9999;
 
 const app = express();
+app.use(express.static(path.join(__dirname, '/')));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
