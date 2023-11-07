@@ -32,15 +32,15 @@ app.post('/webhook', async (req, res) => {
       const parsedData = JSON.parse(data);
       // console.log(parsedData);
 
-      const profileData = { "intent": ["positive", "negative", "neutral", "unknown"], "main": parsedData};
+      const profileData = {"main": parsedData};
       try {
         const httpClient = axios.create({
           baseURL: unomiUrl,
           headers: {
             // BELOW LINE IS VERY IMPORTANT AS WITHOUT AUTHENTICATION, UNOMI WILL NOT ALLOW YOU TO USE REST API TO POST ANYTHING! 
             'Authorization': 'Basic a2FyYWY6a2FyYWY=',
-            // 'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            // 'Access-Control-Allow-Origin': '*',
           },
 
         });
@@ -72,6 +72,8 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
+
+        /*
         const response = await httpClient.post('/profiles', profileSent);
 
         if (response.status === 201 || response.status === 200) {
@@ -82,6 +84,7 @@ app.post('/webhook', async (req, res) => {
           res.send(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
           console.error(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
         }
+        */
       }
       catch (error) {
         res.send(`[ERROR] - [53] - Error creating profile: ${error.message}`);
