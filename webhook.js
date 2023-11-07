@@ -41,8 +41,7 @@ app.post('/webhook', async (req, res) => {
             'Authorization': 'Basic a2FyYWY6a2FyYWY=',
             'Content-Type': 'application/json',
             // 'Access-Control-Allow-Origin': '*',
-          },
-
+          }
         });
 
         const profileSent = {
@@ -85,7 +84,7 @@ app.post('/webhook', async (req, res) => {
           console.error(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
         }
         */
-        console.log("[SUCCESS] - Everything is good!");
+        console.log(`[SUCCESS] - ${profileSent}`);
         res.send("[SUCCESS] - Everything is good!");
       }
       catch (error) {
