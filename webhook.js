@@ -28,6 +28,7 @@ app.post('/webhook', async (req, res) => {
 
   req.on('data', async (data) => {
     if (data && data !== '') {
+      console.log("[SUCCESS] - JSON api is working fine!");
       const parsedData = JSON.parse(data);
       // console.log(parsedData);
 
@@ -38,7 +39,7 @@ app.post('/webhook', async (req, res) => {
           headers: {
             // BELOW LINE IS VERY IMPORTANT AS WITHOUT AUTHENTICATION, UNOMI WILL NOT ALLOW YOU TO USE REST API TO POST ANYTHING! 
             'Authorization': 'Basic a2FyYWY6a2FyYWY=',
-            'Access-Control-Allow-Origin': '*',
+            // 'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
           },
 
@@ -60,7 +61,7 @@ app.post('/webhook', async (req, res) => {
           "segments": ["Hello", "World"],
           "scores": {},
           "consents": {
-            "mark1_test": {
+            "mark2_test": {
               "scope": "string",
               "typeIdentifier": "string",
               "status": "GRANTED",

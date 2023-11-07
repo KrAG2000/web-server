@@ -13,9 +13,15 @@
     <div class="red">Hello there I'm red, a pretty bright color that will burn your eyes in no time.</div>
     <script 
         id="6548c258ee34ac77d3b513c2" 
-        src="https://dashboard.chatfuel.com/integration/entry-point.js" async
-        defer>
+        src="https://dashboard.chatfuel.com/integration/entry-point.js" 
+        async defer>
     </script>
+    <script>
+        document.onload(() => {
+            document.getElementsByClassName("limegreen")[0].style = "visibility: visible";
+        });
+    </script>
+
 </body>
 
 </html>
