@@ -38,7 +38,7 @@ app.post('/webhook', async (req, res) => {
           headers: {
             // BELOW LINE IS VERY IMPORTANT AS WITHOUT AUTHENTICATION, UNOMI WILL NOT ALLOW YOU TO USE REST API TO POST ANYTHING! 
             'Authorization': 'Basic a2FyYWY6a2FyYWY=',
-            'Access-Control-Allow-Origin': *,
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
           },
 
