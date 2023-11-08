@@ -72,16 +72,16 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
-        const response = await httpClient.post('/profiles', profileSent);
+        // const response = await httpClient.post('/profiles', profileSent);
 
-        if (response.status === 201 || response.status === 200) {
-          res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
-          console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
-        }
-        else {
-          res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
-          console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
-        }
+        // if (response.status === 201 || response.status === 200) {
+        //   res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
+        //   console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
+        // }
+        // else {
+        //   res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+        //   console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+        // }
         
 
         res.send("[SUCCESS] - Everything is good!");
@@ -101,7 +101,6 @@ app.post('/webhook', async (req, res) => {
   });
 
   console.log("----------------END----------------");
-
 });
 
 app.listen(port, () => {
