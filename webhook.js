@@ -31,7 +31,11 @@ app.post('/webhook', async (req, res) => {
       console.log("[SUCCESS] - JSON api is working fine!");
 
       const parsedData = JSON.parse(data);
-      console.log(`[SUCCESS] - ${parsedData}`);
+      console.log(`[SUCCESS] - ${parsedData['messenger user id']}`);
+      console.log(`[SUCCESS] - ${parsedData['first name']}`);
+      console.log(`[SUCCESS] - ${parsedData['last name']}`);
+      console.log(`[SUCCESS] - ${parsedData['timezone']}`);
+      console.log(`[SUCCESS] - ${parsedData['last seen']}`);
 
       const profileData = {"main": parsedData};
       try {
