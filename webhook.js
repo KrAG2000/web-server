@@ -29,8 +29,9 @@ app.post('/webhook', async (req, res) => {
   req.on('data', async (data) => {
     if (data && data !== '') {
       console.log("[SUCCESS] - JSON api is working fine!");
+
       const parsedData = JSON.parse(data);
-      // console.log(parsedData);
+      console.log(`[SUCCESS] - ${parsedData}`);
 
       const profileData = {"main": parsedData};
       try {
@@ -84,7 +85,7 @@ app.post('/webhook', async (req, res) => {
           console.error(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
         }
         */
-        console.log(`[SUCCESS] - ${profileSent}`);
+
         res.send("[SUCCESS] - Everything is good!");
       }
       catch (error) {
