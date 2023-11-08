@@ -87,6 +87,7 @@ app.post('/webhook', async (req, res) => {
         */
 
         res.send("[SUCCESS] - Everything is good!");
+
       }
       catch (error) {
         res.send(`[ERROR] - [53] - Error creating profile: ${error.message}`);
@@ -100,6 +101,9 @@ app.post('/webhook', async (req, res) => {
       console.error("No message found in the request!");
     }
   });
+
+  console.log("----------------END----------------");
+
 });
 
 app.listen(port, () => {
