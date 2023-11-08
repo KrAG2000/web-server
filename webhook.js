@@ -1,7 +1,7 @@
 const axios = require('axios');
 const path = require('path');
-const unomiUrl = 'http://localhost:8181/cxs';
 const express = require('express');
+const unomiUrl = 'http://localhost:8181/cxs';
 
 const port = process.env.PORT || 9999;
 
@@ -32,11 +32,6 @@ app.post('/webhook', async (req, res) => {
 
       const parsedData = JSON.parse(data);
       console.log(JSON.stringify(parsedData, undefined, 2));
-      // console.log(`[SUCCESS] - ${parsedData['messenger user id']}`);
-      // console.log(`[SUCCESS] - ${parsedData['first name']}`);
-      // console.log(`[SUCCESS] - ${parsedData['last name']}`);
-      // console.log(`[SUCCESS] - ${parsedData['timezone']}`);
-      // console.log(`[SUCCESS] - ${parsedData['last seen']}`);
 
       const profileData = {"main": parsedData};
       try {
@@ -77,8 +72,6 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
-
-        /*
         const response = await httpClient.post('/profiles', profileSent);
 
         if (response.status === 201 || response.status === 200) {
@@ -86,17 +79,17 @@ app.post('/webhook', async (req, res) => {
           console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
         }
         else {
-          res.send(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
-          console.error(`[ERROR] - [48] - Profile creation failed: ${response.statusText}`);
+          res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+          console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
         }
-        */
+        
 
         res.send("[SUCCESS] - Everything is good!");
 
       }
       catch (error) {
-        res.send(`[ERROR] - [53] - Error creating profile: ${error.message}`);
-        console.error(`[ERROR] - [53] - Error creating profile: ${error.message}`);
+        res.send(`[ERROR] - [92] - Error creating profile: ${error.message}`);
+        console.error(`[ERROR] - [92] - Error creating profile: ${error.message}`);
       }
     }
     else {
