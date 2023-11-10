@@ -1,7 +1,7 @@
 const axios = require('axios');
 const path = require('path');
 const express = require('express');
-const unomiUrl = 'http://localhost:8181/cxs';
+const unomiUrl = 'http://dxp-core.oslabs.app/cxs';
 
 const port = process.env.PORT || 9999;
 
@@ -72,16 +72,16 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
-        // const response = await httpClient.post('/profiles', profileSent);
+        const response = await httpClient.post('/profiles', profileSent);
 
-        // if (response.status === 201 || response.status === 200) {
-        //   res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
-        //   console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
-        // }
-        // else {
-        //   res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
-        //   console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
-        // }
+        if (response.status === 201 || response.status === 200) {
+          res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
+          console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
+        }
+        else {
+          res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+          console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+        }
         
 
         res.send("[SUCCESS] - Everything is good!");
