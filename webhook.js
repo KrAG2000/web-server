@@ -44,9 +44,11 @@ app.post('/webhook', async (req, res) => {
             // 'Access-Control-Allow-Origin': '*',
           }
         });
-
+        let tempID = generateUUID();
+        console.log(tempID);
+        
         const profileSent = {
-          "itemId": generateUUID(),
+          "itemId": tempID,
           "itemType": "profile",
           "version": 1,
           "properties": {
