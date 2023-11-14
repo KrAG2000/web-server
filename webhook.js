@@ -43,7 +43,8 @@ app.post('/webhook', async (req, res) => {
             "itemType": "profile",
             "version": 1,
             "properties": {
-              "nbOfVisits": parseInt(response['sessions']) + 1,
+              // "nbOfVisits": parseInt(response['sessions']) + 1,
+              "nbOfVisits": 1,
               "lastVisit": new Date(),
               "firstVisit": response['signed up'],
               "body": parsedData
