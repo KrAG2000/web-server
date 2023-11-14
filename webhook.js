@@ -49,8 +49,8 @@ app.post('/webhook', async (req, res) => {
         });
 
         const profileSent = {
-          // "itemId": parsedData["chatfuel user id"],
-          "itemId": "mark126",
+          "itemId": parsedData["email"],
+          // "itemId": "mark126",
           "itemType": "profile",
           "version": 1,
           "properties": {
