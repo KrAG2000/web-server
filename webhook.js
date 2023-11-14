@@ -23,7 +23,6 @@ app.post('/webhook', async (req, res) => {
       const parsedData = JSON.parse(data);
       console.log(JSON.stringify(parsedData, undefined, 2));
 
-      // const profileData = {"main": parsedData};
       try {
         const httpClient = axios.create({
           baseURL: unomiUrl,
@@ -36,15 +35,15 @@ app.post('/webhook', async (req, res) => {
         });
 
         let profileSent = {};
-        let response = await httpClient.get(`/profiles/${parsedData["unique_identifier"]}`);
+        let response = await httpClient.get(`/profiles/${parsedData["messenger user id"]}`);
         if (response) {
           profileSent = {
-            "itemId": parsedData["unique_identifier"],
+            "itemId": parsedData["messenger user id"],
             "itemType": "profile",
             "version": 1,
             "properties": {
-              // "nbOfVisits": parseInt(response['sessions']) + 1,
-              "nbOfVisits": 1,
+              "nbOfVisits": parseInt(response['sessions']) + 1,
+              // "nbOfVisits": 1,
               "lastVisit": new Date(),
               "firstVisit": response['signed up'],
               "body": parsedData

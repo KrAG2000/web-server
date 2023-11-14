@@ -1,90 +1,135 @@
 const json1 = {
-    "itemId": "agni5kartik@gmail.com",
-    "itemType": "profile",
-    "version": 4,
-    "properties": {
-        "nbOfVisits": 1,
-        "lastVisit": "2023-11-14T07:01:59.738Z",
-        "firstVisit": "2023-11-14T07:01:59.738Z",
-        "body": {
-            "last visited block name": "ZtNQHIXHEpqNSeinAJLO",
-            "sessions": 1,
-            "last clicked button name": "null",
-            "last visited block id": "65530da466dcd3414be75a9f",
-            "unique_identifier": "agni5kartik@gmail.com",
-            "gender": "",
-            "timezone": "",
-            "chatfuel user id": "152776444594265",
-            "source": "Guest Customer Chat",
-            "messenger user id": "152776444594265",
-            "locale": "",
-            "last seen": "2023-11-14 07:01:59",
-            "profile pic url": "",
-            "signed up": "2023-11-14 07:01:49",
-            "last name": "152776444594265",
-            "first name": "Guest User"
-        }
-    },
-    "systemProperties": {
-        "lastUpdated": new Date()
-    },
-    "segments": ["445a5a42"],
-    "scores": {},
-    "mergedWith": null,
-    "consents": {
-        "mark3_test": {
-            "scope": "apache",
-            "typeIdentifier": "string",
-            "status": "GRANTED",
-            "statusDate": "2023-11-14T07:01:59Z",
-            "revokeDate": "2023-11-14T07:01:59Z"
-        }
-    }
+    "first name": "Guest User",
+    "middle name": "",
+    "last name": 154831377720922,
+    "timezone": "",
+    "locale": "",
+    "gender": "",
+    "messenger user id": 154831377720922,
+    "chatfuel user id": 154831377720922,
+    "eu restricted": "No",
+    "profile pic url": "",
+    "signed up": "2023-11-14 09:49:30",
+    "last seen": "2023-11-14 09:49:40",
+    "sessions": 1,
+    "source": "Guest Customer Chat",
+    "ref": "6548c258ee34ac77d3b513c2",
+    "original source": "Guest Customer Chat",
+    "original ref": "6548c258ee34ac77d3b513c2",
+    "last visited block id": "65530da466dcd3414be75a9f",
+    "last visited block name": "ZtNQHIXHEpqNSeinAJLO",
+    "internal user id": "655342aad636e2c4933eb5b7",
+    "custom audience ids": "[]",
+    "guest": "true",
+    "modified date": "2023-11-14T09:49:30.923Z",
+    "last action date": "2023-11-14 09:49:30",
+    "livechat folder": "done",
+    "livechat last modified date": "2023-11-14 09:49:30",
+    "custom attributes": 0,
+    "refs": "[guest_customer_chat_plugin_6548c258ee34ac77d3b513c2]",
+    "available_outside_24h_window": "true",
+    "subscribed rss and search subscriptions": "[]",
+    "otn purposes": "[]",
+    "notification message topics": "[]",
+    "last user freeform input": "kartik@kartik.com",
+    "email": "kartik@kartik.com",
+    "intent": "testing",
+    "based_on_user_input": "undefined"
 }
 
 const json2 = {
-    "itemId": "agni5kartik@gmail.com",
-    "itemType": "profile",
-    "version": 6,
-    "properties": {
-        "nbOfVisits": 1,
-        "lastVisit": "2023-11-14T07:03:49.176Z",
-        "firstVisit": "2023-11-14T07:03:49.176Z",
-        "body": {
-            "last visited block name": "ZtNQHIXHEpqNSeinAJLO",
-            "sessions": 1,
-            "last clicked button name": "null",
-            "last visited block id": "65530da466dcd3414be75a9f",
-            "unique_identifier": "agni5kartik@gmail.com",
-            "gender": "",
-            "timezone": "",
-            "chatfuel user id": "135474322991490",
-            "source": "Guest Customer Chat",
-            "messenger user id": "135474322991490",
-            "locale": "",
-            "last seen": "2023-11-14 07:03:48",
-            "profile pic url": "",
-            "signed up": "2023-11-14 07:03:40",
-            "last name": "135474322991490",
-            "first name": "Guest User"
-        }
-    },
-    "systemProperties": {
-        "lastUpdated": "2023-11-14T07:03:49Z"
-    },
-    "segments": ["445a5a42"],
-    "scores": {},
-    "mergedWith": null,
-    "consents": {
-        "mark3_test": {
-            "scope": "apache",
-            "typeIdentifier": "string",
-            "status": "GRANTED",
-            "statusDate": "2023-11-14T07:03:49Z",
-            "revokeDate": "2023-11-14T07:03:49Z"
+    "first name": "Guest User",
+    "middle name": "",
+    "last name": 175261278999242,
+    "timezone": "",
+    "locale": "",
+    "gender": "",
+    "messenger user id": 175261278999242,
+    "chatfuel user id": 175261278999242,
+    "eu restricted": "No",
+    "profile pic url": "",
+    "signed up": "2023-11-14 09:51:55",
+    "last seen": "2023-11-14 09:52:14",
+    "sessions": 1,
+    "source": "Guest Customer Chat",
+    "ref": "6548c258ee34ac77d3b513c2",
+    "original source": "Guest Customer Chat",
+    "original ref": "6548c258ee34ac77d3b513c2",
+    "last visited block id": "65530da466dcd3414be75a9f",
+    "last visited block name": "ZtNQHIXHEpqNSeinAJLO",
+    "internal user id": "6553433b619a18f825cbcf66",
+    "custom audience ids": "[]",
+    "guest": "true",
+    "modified date": "2023-11-14T09:51:56.568Z",
+    "last action date": "2023-11-14 09:51:56",
+    "livechat folder": "done",
+    "livechat last modified date": "2023-11-14 09:51:56",
+    "custom attributes": 0,
+    "refs": "[guest_customer_chat_plugin_6548c258ee34ac77d3b513c2]",
+    "available_outside_24h_window": "true",
+    "subscribed rss and search subscriptions": "[]",
+    "otn purposes": "[]",
+    "notification message topics": "[]",
+    "last user freeform input": "kartik@kartik.com",
+    "email": "kartik@kartik.com",
+    "intent": "testing",
+    "based_on_user_input": "undefined"
+}
+
+
+
+console.log((json1 === json2) ? "Jsons are equal" : "Jsons are NOT equal");
+
+const graphql_json = {
+    "input": {
+        "client_mutation_id": "2719339560064606",
+        "actor_id": "181494511705615",
+        "message_text": "hello",
+        "platform_token": null,
+        "page_id": "112715961935203",
+        "logging_extra": {
+            "requestID": "461d4b90-aaa2-420c-ab05-baade52db2cc",
+            "isLoggedIn": "false",
+            "isLoggedInUserAction": "false"
         }
     }
 }
 
-
-console.log((json1 === json2) ? "Jsons are equal" : "Jsons are NOT equal");
+const incoming_payload = {
+    "first name": "Guest User",
+    "middle name": "",
+    "last name": 181494511705615,
+    "timezone": "",
+    "locale": "",
+    "gender": "",
+    "messenger user id": 181494511705615,
+    "chatfuel user id": 181494511705615,
+    "eu restricted": "No",
+    "profile pic url": "",
+    "signed up": "2023-11-14 10:00:39",
+    "last seen": "2023-11-14 10:00:51",
+    "sessions": 1,
+    "source": "Guest Customer Chat",
+    "ref": "6548c258ee34ac77d3b513c2",
+    "original source": "Guest Customer Chat",
+    "original ref": "6548c258ee34ac77d3b513c2",
+    "last visited block id": "65530da466dcd3414be75a9f",
+    "last visited block name": "ZtNQHIXHEpqNSeinAJLO",
+    "internal user id": "655345472d9b2f5e50e34079",
+    "custom audience ids": "[]",
+    "guest": "true",
+    "modified date": "2023-11-14T10:00:40.531Z",
+    "last action date": "2023-11-14 10:00:40",
+    "livechat folder": "done",
+    "livechat last modified date": "2023-11-14 10:00:40",
+    "custom attributes": 0,
+    "refs": "[guest_customer_chat_plugin_6548c258ee34ac77d3b513c2]",
+    "available_outside_24h_window": "true",
+    "subscribed rss and search subscriptions": "[]",
+    "otn purposes": "[]",
+    "notification message topics": "[]",
+    "last user freeform input": "kartik",
+    "email": "kartik",
+    "intent": "testing",
+    "based_on_user_input": "undefined"
+}
