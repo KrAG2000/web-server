@@ -1,6 +1,7 @@
 const axios = require('axios');
 const path = require('path');
 const express = require('express');
+// const unomiUrl = 'http://localhost:8181/cxs';
 const unomiUrl = 'http://dxp-core.oslabs.app/cxs';
 
 const port = process.env.PORT || 9999;
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+/*
 function generateUUID() {
   let id = '';
   for (let i = 0; i < 24; i++) {
@@ -22,6 +24,7 @@ function generateUUID() {
   }
   return id;
 }
+*/
 
 app.post('/webhook', async (req, res) => {
   console.log("----------------START----------------");
@@ -33,7 +36,7 @@ app.post('/webhook', async (req, res) => {
       const parsedData = JSON.parse(data);
       console.log(JSON.stringify(parsedData, undefined, 2));
 
-      const profileData = {"main": parsedData};
+      // const profileData = {"main": parsedData};
       try {
         const httpClient = axios.create({
           baseURL: unomiUrl,
@@ -44,27 +47,26 @@ app.post('/webhook', async (req, res) => {
             // 'Access-Control-Allow-Origin': '*',
           }
         });
-        let tempID = generateUUID();
-        console.log(tempID);
-        
+
         const profileSent = {
-          "itemId": tempID,
+          // "itemId": parsedData["chatfuel user id"],
+          "itemId": "mark126",
           "itemType": "profile",
           "version": 1,
           "properties": {
             "nbOfVisits": 1,
             "lastVisit": new Date(),
             "firstVisit": new Date(),
-            "body": profileData
+            "body": parsedData
           },
           "systemProperties": {
             "lastUpdated": new Date()
           },
-          "segments": ["Hello", "World"],
+          "segments": ["Segment", "Test"],
           "scores": {},
           "consents": {
-            "mark2_test": {
-              "scope": "string",
+            "mark3_test": {
+              "scope": "apache",
               "typeIdentifier": "string",
               "status": "GRANTED",
               "statusDate": new Date(),
@@ -74,7 +76,14 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
-        const response = await httpClient.post('/profiles', profileSent);
+        let response = null;
+        const test_response = await httpClient.get(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
+        if (test_response) {
+          response = await httpClient.put(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
+        }
+        else {
+          response = await httpClient.post('/profiles', profileSent);
+        }
 
         if (response.status === 201 || response.status === 200) {
           res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
@@ -84,7 +93,6 @@ app.post('/webhook', async (req, res) => {
           res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
           console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
         }
-        
 
         res.send("[SUCCESS] - Everything is good!");
 
