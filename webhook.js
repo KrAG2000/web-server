@@ -76,14 +76,14 @@ app.post('/webhook', async (req, res) => {
           }
         }
 
-        let response = null;
-        const test_response = await httpClient.get(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
-        if (test_response) {
-          response = await httpClient.put(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
-        }
-        else {
+        // let response = null;
+        // const test_response = await httpClient.get(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
+        // if (test_response) {
+        //   response = await httpClient.put(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
+        // }
+        // else {
           response = await httpClient.post('/profiles', profileSent);
-        }
+        // }
 
         if (response.status === 201 || response.status === 200) {
           res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
