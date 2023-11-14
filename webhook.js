@@ -49,7 +49,7 @@ app.post('/webhook', async (req, res) => {
         });
 
         const profileSent = {
-          "itemId": parsedData["email"],
+          "itemId": parsedData["unique_identifier"],
           // "itemId": "mark126",
           "itemType": "profile",
           "version": 1,
