@@ -13,19 +13,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-/*
-function generateUUID() {
-  let id = '';
-  for (let i = 0; i < 24; i++) {
-    if (i === 4 || i === 8 || i === 12 || i === 16 || i === 20) {
-      id += '-';
-    }
-    id += Math.floor(Math.random() * 24).toString(24);
-  }
-  return id;
-}
-*/
-
 app.post('/webhook', async (req, res) => {
   console.log("----------------START----------------");
 
@@ -48,42 +35,66 @@ app.post('/webhook', async (req, res) => {
           }
         });
 
-        const profileSent = {
-          "itemId": parsedData["unique_identifier"],
-          // "itemId": "mark126",
-          "itemType": "profile",
-          "version": 1,
-          "properties": {
-            "nbOfVisits": 1,
-            "lastVisit": new Date(),
-            "firstVisit": new Date(),
-            "body": parsedData
-          },
-          "systemProperties": {
-            "lastUpdated": new Date()
-          },
-          "segments": ["Segment", "Test"],
-          "scores": {},
-          "consents": {
-            "mark3_test": {
-              "scope": "apache",
-              "typeIdentifier": "string",
-              "status": "GRANTED",
-              "statusDate": new Date(),
-              "revokeDate": new Date(),
-              "consentGrantedNow": true
+        let profileSent = {};
+        let response = await httpClient.get(`/profiles/${parsedData["unique_identifier"]}`);
+        if (response) {
+          profileSent = {
+            "itemId": parsedData["unique_identifier"],
+            "itemType": "profile",
+            "version": parseInt(response['version']) + 1,
+            "properties": {
+              "nbOfVisits": parseInt(response['properties']['nbOfVisits']) + 1,
+              "lastVisit": new Date(),
+              "firstVisit": response['properties']['firstVisit'],
+              "body": parsedData
+            },
+            "systemProperties": {
+              "lastUpdated": new Date()
+            },
+            "segments": ["Segment", "Test"],
+            "scores": {},
+            "consents": {
+              "mark3_test": {
+                "scope": "apache",
+                "typeIdentifier": "string",
+                "status": "GRANTED",
+                "statusDate": new Date(),
+                "revokeDate": new Date(),
+                "consentGrantedNow": true
+              }
+            }
+          }
+        }
+        else {
+          profileSent = {
+            "itemId": parsedData["unique_identifier"],
+            "itemType": "profile",
+            "version": 1,
+            "properties": {
+              "nbOfVisits": 1,
+              "lastVisit": new Date(),
+              "firstVisit": new Date(),
+              "body": parsedData
+            },
+            "systemProperties": {
+              "lastUpdated": new Date()
+            },
+            "segments": ["Segment", "Test"],
+            "scores": {},
+            "consents": {
+              "mark3_test": {
+                "scope": "apache",
+                "typeIdentifier": "string",
+                "status": "GRANTED",
+                "statusDate": new Date(),
+                "revokeDate": new Date(),
+                "consentGrantedNow": true
+              }
             }
           }
         }
 
-        // let response = null;
-        // const test_response = await httpClient.get(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
-        // if (test_response) {
-        //   response = await httpClient.put(`/profiles/${parsedData["chatfuel user id"]}`, profileSent);
-        // }
-        // else {
-          response = await httpClient.post('/profiles', profileSent);
-        // }
+        response = await httpClient.post('/profiles', profileSent);
 
         if (response.status === 201 || response.status === 200) {
           res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);

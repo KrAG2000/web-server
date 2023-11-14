@@ -1,0 +1,130 @@
+{
+    "itemId": "mark126",
+    "itemType": "profile",
+    "version": 4,
+    "properties": {
+        "nbOfVisits": 1,
+        "lastVisit": "2023-11-14T05:46:24.891Z",
+        "firstVisit": "2023-11-14T05:46:24.891Z",
+        "body": {
+            "last visited block name": "sTehIDfgjPDgNiFBpUsB",
+            "livechat last modified date": "",
+            "custom attributes": 0,
+            "gender": "",
+            "last action date": "",
+            "timezone": "",
+            "chatfuel user id": 162633090269133,
+            "otn purposes": "[]",
+            "source": "Guest Customer Chat",
+            "locale": "",
+            "last seen": "2023-11-14 05:46:24",
+            "based_on_user_input": "undefined",
+            "profile pic url": "",
+            "internal user id": "655309b0cef68cc0ebaf7711",
+            "ref": "6548c258ee34ac77d3b513c2",
+            "original ref": "6548c258ee34ac77d3b513c2",
+            "last name": 162633090269133,
+            "first name": "Guest User",
+            "middle name": "",
+            "email": "anonymous@anonymous.anonymous",
+            "sessions": 1,
+            "last visited block id": "6548c258ee34ac77d3b513c2",
+            "messenger user id": 162633090269133,
+            "notification message topics": "[]",
+            "intent": "testing",
+            "eu restricted": "No",
+            "livechat folder": "done",
+            "available_outside_24h_window": "true",
+            "signed up": "2023-11-14 05:46:24",
+            "modified date": "2023-11-14T05:46:24.574Z",
+            "original source": "Guest Customer Chat",
+            "refs": "[guest_customer_chat_plugin_6548c258ee34ac77d3b513c2]",
+            "guest": "true",
+            "subscribed rss and search subscriptions": "[]",
+            "custom audience ids": "[]"
+        }
+    },
+    "systemProperties": {
+        "lastUpdated": "2023-11-14T05:46:25Z"
+    },
+    "segments": [
+        "445a5a42"
+    ],
+    "scores": {},
+    "mergedWith": null,
+    "consents": {
+        "mark3_test": {
+            "scope": "apache",
+            "typeIdentifier": "string",
+            "status": "GRANTED",
+            "statusDate": "2023-11-14T05:46:24Z",
+            "revokeDate": "2023-11-14T05:46:24Z"
+        }
+    }
+}
+
+{
+    "itemId": "mark126",
+    "itemType": "profile",
+    "version": 6,
+    "properties": {
+        "nbOfVisits": 1,
+        "lastVisit": "2023-11-14T05:53:43.901Z",
+        "firstVisit": "2023-11-14T05:53:43.901Z",
+        "body": {
+            "last visited block name": "sTehIDfgjPDgNiFBpUsB",
+            "livechat last modified date": "",
+            "custom attributes": 0,
+            "gender": "",
+            "last action date": "",
+            "timezone": "",
+            "chatfuel user id": "156638657538280",
+            "otn purposes": "[]",
+            "source": "Guest Customer Chat",
+            "locale": "",
+            "last seen": "2023-11-14 05:53:43",
+            "based_on_user_input": "undefined",
+            "profile pic url": "",
+            "internal user id": "655309b0cef68cc0ebaf7711",
+            "ref": "6548c258ee34ac77d3b513c2",
+            "original ref": "6548c258ee34ac77d3b513c2",
+            "last name": "156638657538280",
+            "first name": "Guest User",
+            "middle name": "",
+            "email": "anonymous@anonymous.anonymous",
+            "sessions": 1,
+            "last clicked button name": "null",
+            "last visited block id": "6548c258ee34ac77d3b513c2",
+            "messenger user id": "156638657538280",
+            "notification message topics": "[]",
+            "intent": "testing",
+            "eu restricted": "No",
+            "livechat folder": "done",
+            "available_outside_24h_window": "true",
+            "signed up": "2023-11-14 05:53:43",
+            "modified date": "2023-11-14T05:46:24.574Z",
+            "original source": "Guest Customer Chat",
+            "refs": "[guest_customer_chat_plugin_6548c258ee34ac77d3b513c2]",
+            "guest": "true",
+            "subscribed rss and search subscriptions": "[]",
+            "custom audience ids": "[]"
+        }
+    },
+    "systemProperties": {
+        "lastUpdated": "2023-11-14T05:53:44Z"
+    },
+    "segments": [
+        "445a5a42"
+    ],
+    "scores": {},
+    "mergedWith": null,
+    "consents": {
+        "mark3_test": {
+            "scope": "apache",
+            "typeIdentifier": "string",
+            "status": "GRANTED",
+            "statusDate": "2023-11-14T05:53:43Z",
+            "revokeDate": "2023-11-14T05:53:43Z"
+        }
+    }
+}
