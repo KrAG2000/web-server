@@ -41,11 +41,11 @@ app.post('/webhook', async (req, res) => {
           profileSent = {
             "itemId": parsedData["unique_identifier"],
             "itemType": "profile",
-            "version": parseInt(response['version']) + 1,
+            "version": 1,
             "properties": {
-              "nbOfVisits": 1,
+              "nbOfVisits": parseInt(response['sessions']) + 1,
               "lastVisit": new Date(),
-              "firstVisit": response['properties']['firstVisit'],
+              "firstVisit": response['signed up'],
               "body": parsedData
             },
             "systemProperties": {
