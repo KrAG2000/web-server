@@ -10,7 +10,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/')));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index2.html");
+  res.sendFile(__dirname + "/index.html");
+  // res.sendFile(__dirname + "/index2.html");
 });
 
 app.post('/webhook', async (req, res) => {
@@ -100,10 +101,12 @@ app.post('/webhook', async (req, res) => {
         if (response.status === 201 || response.status === 200) {
           res.send(`[SUCCESS] - PID: ${profileSent.itemId}`);
           console.log(`[SUCCESS] - PID: ${profileSent.itemId}`);
+          console.log("----------------END----------------");
         }
         else {
           res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
           console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+          console.log("----------------END----------------");  
         }
 
         res.send("[SUCCESS] - Everything is good!");
@@ -112,6 +115,7 @@ app.post('/webhook', async (req, res) => {
       catch (error) {
         res.send(`[ERROR] - [92] - Error creating profile: ${error.message}`);
         console.error(`[ERROR] - [92] - Error creating profile: ${error.message}`);
+        console.log("----------------END----------------");  
       }
     }
     else {
@@ -119,10 +123,10 @@ app.post('/webhook', async (req, res) => {
         message: "No message found in the request!",
       });
       console.error("No message found in the request!");
+      console.log("----------------END----------------");
     }
   });
 
-  console.log("----------------END----------------");
 });
 
 app.listen(port, () => {
