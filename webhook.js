@@ -36,73 +36,25 @@ app.post('/webhook', async (req, res) => {
           }
         });
 
-        // let profileSent = {};
-        // const profile = await httpClient.get({
-        //   index: `context-profile`,
-        //   id: "mark1"
-        // })
-        //   // .then(p => p.body._source
-        //   .then(p => p.body)
-        //   .catch(() => {
-        //     return { "Message": "PAKDA GAYA!" };
-        //   });
-
-        // console.log(profile);
-
-        // let response = await httpClient.get(`/profiles/${parsedData["messenger user id"]}`);
-        // let response = await httpClient.get(`/profiles/mark72`);
-        // const responseData = JSON.parse(response);
-        // console.log(JSON.stringify(responseData, undefined, 2));
-
-        // if (response) {
         profileSent = {
+          "systemProperties": {
+            "lastUpdated": new Date()
+          },
           "itemId": "mark72",
           "itemType": "profile",
           "version": 1,
+          "mergedWith": null,
           "properties": {
             "nbOfVisits": 1,
             "lastVisit": new Date(),
             "firstVisit": new Date(),
             "firstName": parsedData["key"],
           },
-          "systemProperties": {
-            "lastUpdated": new Date()
-          },
           "segments": ["Mark72"],
           "scores": {},
           "consents": {}
         }
-        // }
-        // else {
-        // profileSent = {
-        //   "itemId": "mark72",
-        //   "itemType": "profile",
-        //   "version": 1,
-        //   "properties": {
-        //     // "nbOfVisits": 1,
-        //     "nbOfVisits": parseInt(response['sessions']) + 1,
-        //     "lastVisit": new Date(),
-        //     "firstVisit": new Date(),
-        //     "body": parsedData
-        //   },
-        //   "systemProperties": {
-        //     "lastUpdated": new Date()
-        //   },
-        //   "segments": ["Segment", "Test"],
-        //   "scores": {},
-        //   "consents": {
-        //     "mark3_test": {
-        //       "scope": "apache",
-        //       "typeIdentifier": "string",
-        //       "status": "GRANTED",
-        //       "statusDate": new Date(),
-        //       "revokeDate": new Date(),
-        //       "consentGrantedNow": true
-        //     }
-        //   }
-        // }
-        // }
-
+   
         response = await httpClient.post('/profiles', profileSent);
 
         if (response.status === 201 || response.status === 200) {
