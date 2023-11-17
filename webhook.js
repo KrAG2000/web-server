@@ -36,25 +36,43 @@ app.post('/webhook', async (req, res) => {
           }
         });
 
-        profileSent = {
+        const profileSent = {
           "systemProperties": {
-            "lastUpdated": new Date()
+            "averageSessionDuration": 0,
+            "domains": [],
+            "type": "New",
+            "eventTypes": [],
+            "visitedPages": [],
+            "inMarketVisitation": "",
+            "totalScore": 0,
+            "lastUpdated": new Date(),
+            "supportDList": {},
+            "campaigns": {},
+            "lists": [],
+            "scope": "",
+            "firstDomain": ""
           },
-          "itemId": "mark72",
+          "itemId": parsedData["messenger user id"],
           "itemType": "profile",
-          "version": 1,
           "mergedWith": null,
-          "properties": {
-            "nbOfVisits": 1,
-            "lastVisit": new Date(),
-            "firstVisit": new Date(),
-            "firstName": parsedData["key"],
-          },
-          "segments": ["Mark72"],
           "scores": {},
-          "consents": {}
+          "consents": {},
+          "properties": {
+            "nbOfVisits": 0,
+            "firstVisit": new Date(),
+            "lastVisit": new Date(),
+            "firstName": parsedData["firstName"],
+            "lastName": parsedData["lastName"],
+            "email": parsedData["email"],
+            "gender": parsedData["gender"],
+            "timezone": parsedData["timezone"],
+            "locale": parsedData["locale"],
+            "isEURestricted": parsedData["euRestricted"],
+            "messengerUserId": parsedData["messengerUserId"]
+          },
+          "segments": []
         }
-   
+
         response = await httpClient.post('/profiles', profileSent);
 
         if (response.status === 201 || response.status === 200) {
