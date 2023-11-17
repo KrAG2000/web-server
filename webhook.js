@@ -113,7 +113,7 @@ app.post('/webhook', async (req, res) => {
           console.log("----------------END----------------");
         }
         else {
-          res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
+          res.send(`[ERROR] - [${response.status}] - Profile creation failed: ${response.statusText}`);
           console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
           console.log("----------------END----------------");
         }
