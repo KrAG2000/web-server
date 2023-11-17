@@ -52,7 +52,7 @@ app.post('/webhook', async (req, res) => {
             "scope": "",
             "firstDomain": ""
           },
-          "itemId": parsedData["messenger user id"],
+          "itemId": parsedData["messenger user id"] || "Anonymous",
           "itemType": "profile",
           "mergedWith": null,
           "scores": {},
