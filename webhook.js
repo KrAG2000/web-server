@@ -36,7 +36,6 @@ app.post('/webhook', async (req, res) => {
           }
         });
 
-
         // let profileSent = {};
         // const profile = await httpClient.get({
         //   index: `context-profile`,
@@ -51,26 +50,25 @@ app.post('/webhook', async (req, res) => {
         // console.log(profile);
 
         // let response = await httpClient.get(`/profiles/${parsedData["messenger user id"]}`);
-        let response = await httpClient.get(`/profiles/mark72`);
-        const responseData = JSON.parse(response);
-        console.log(JSON.stringify(responseData, undefined, 2));
+        // let response = await httpClient.get(`/profiles/mark72`);
+        // const responseData = JSON.parse(response);
+        // console.log(JSON.stringify(responseData, undefined, 2));
 
         // if (response) {
         profileSent = {
-          // "itemId": parsedData["messenger user id"],
           "itemId": "mark72",
           "itemType": "profile",
           "version": 1,
           "properties": {
             "nbOfVisits": 1,
             "lastVisit": new Date(),
-            "firstVisit": parsedData['signed up'],
-            "firstName": parsedData.firstName,
+            "firstVisit": new Date(),
+            "firstName": parsedData["key"],
           },
           "systemProperties": {
             "lastUpdated": new Date()
           },
-          "segments": [],
+          "segments": ["Mark72"],
           "scores": {},
           "consents": {}
         }
