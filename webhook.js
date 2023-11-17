@@ -1,8 +1,9 @@
 const axios = require('axios');
 const path = require('path');
 const express = require('express');
-// const unomiUrl = 'http://localhost:8181/cxs';
-const unomiUrl = 'http://dxp-core.oslabs.app/cxs';
+// const unomiUrl = 'http://localhost:9200/cxs';
+const unomiUrl = 'https://dxp-core.oslabs.app/cxs';
+// const essUrl = 'https://dxp-middleware.oslabs.app/ess';
 
 const port = process.env.PORT || 9999;
 
@@ -35,66 +36,74 @@ app.post('/webhook', async (req, res) => {
           }
         });
 
-        let profileSent = {};
-        let response = await httpClient.get(`/profiles/${parsedData["messenger user id"]}`);
-        if (response) {
-          profileSent = {
-            "itemId": parsedData["messenger user id"],
-            "itemType": "profile",
-            "version": 1,
-            "properties": {
-              // "nbOfVisits": parseInt(response['sessions']) + 1,
-              "nbOfVisits": 1,
-              "lastVisit": new Date(),
-              "firstVisit": response['signed up'],
-              "body": parsedData
-            },
-            "systemProperties": {
-              "lastUpdated": new Date()
-            },
-            "segments": ["Segment", "Test"],
-            "scores": {},
-            "consents": {
-              "mark3_test": {
-                "scope": "apache",
-                "typeIdentifier": "string",
-                "status": "GRANTED",
-                "statusDate": new Date(),
-                "revokeDate": new Date(),
-                "consentGrantedNow": true
-              }
-            }
-          }
+
+        // let profileSent = {};
+        // const profile = await httpClient.get({
+        //   index: `context-profile`,
+        //   id: "mark1"
+        // })
+        //   // .then(p => p.body._source
+        //   .then(p => p.body)
+        //   .catch(() => {
+        //     return { "Message": "PAKDA GAYA!" };
+        //   });
+
+        // console.log(profile);
+
+        // let response = await httpClient.get(`/profiles/${parsedData["messenger user id"]}`);
+        let response = await httpClient.get(`/profiles/mark72`);
+        const responseData = JSON.parse(response);
+        console.log(JSON.stringify(responseData, undefined, 2));
+
+        // if (response) {
+        profileSent = {
+          // "itemId": parsedData["messenger user id"],
+          "itemId": "mark72",
+          "itemType": "profile",
+          "version": 1,
+          "properties": {
+            "nbOfVisits": 1,
+            "lastVisit": new Date(),
+            "firstVisit": parsedData['signed up'],
+            "firstName": parsedData.firstName,
+          },
+          "systemProperties": {
+            "lastUpdated": new Date()
+          },
+          "segments": [],
+          "scores": {},
+          "consents": {}
         }
-        else {
-          profileSent = {
-            "itemId": parsedData["unique_identifier"],
-            "itemType": "profile",
-            "version": 1,
-            "properties": {
-              // "nbOfVisits": 1,
-              "nbOfVisits": parseInt(response['sessions']) + 1,
-              "lastVisit": new Date(),
-              "firstVisit": new Date(),
-              "body": parsedData
-            },
-            "systemProperties": {
-              "lastUpdated": new Date()
-            },
-            "segments": ["Segment", "Test"],
-            "scores": {},
-            "consents": {
-              "mark3_test": {
-                "scope": "apache",
-                "typeIdentifier": "string",
-                "status": "GRANTED",
-                "statusDate": new Date(),
-                "revokeDate": new Date(),
-                "consentGrantedNow": true
-              }
-            }
-          }
-        }
+        // }
+        // else {
+        // profileSent = {
+        //   "itemId": "mark72",
+        //   "itemType": "profile",
+        //   "version": 1,
+        //   "properties": {
+        //     // "nbOfVisits": 1,
+        //     "nbOfVisits": parseInt(response['sessions']) + 1,
+        //     "lastVisit": new Date(),
+        //     "firstVisit": new Date(),
+        //     "body": parsedData
+        //   },
+        //   "systemProperties": {
+        //     "lastUpdated": new Date()
+        //   },
+        //   "segments": ["Segment", "Test"],
+        //   "scores": {},
+        //   "consents": {
+        //     "mark3_test": {
+        //       "scope": "apache",
+        //       "typeIdentifier": "string",
+        //       "status": "GRANTED",
+        //       "statusDate": new Date(),
+        //       "revokeDate": new Date(),
+        //       "consentGrantedNow": true
+        //     }
+        //   }
+        // }
+        // }
 
         response = await httpClient.post('/profiles', profileSent);
 
@@ -106,8 +115,9 @@ app.post('/webhook', async (req, res) => {
         else {
           res.send(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
           console.error(`[ERROR] - [82] - Profile creation failed: ${response.statusText}`);
-          console.log("----------------END----------------");  
+          console.log("----------------END----------------");
         }
+
 
         res.send("[SUCCESS] - Everything is good!");
 
@@ -115,7 +125,7 @@ app.post('/webhook', async (req, res) => {
       catch (error) {
         res.send(`[ERROR] - [92] - Error creating profile: ${error.message}`);
         console.error(`[ERROR] - [92] - Error creating profile: ${error.message}`);
-        console.log("----------------END----------------");  
+        console.log("----------------END----------------");
       }
     }
     else {
