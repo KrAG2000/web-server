@@ -19,7 +19,7 @@ app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
   console.log(req.headers.email, ":", req.body);
   console.log("----------------END----------------");
-  res.send({body: req});
+  res.send(JSON.parse(req));
 });
 
 app.listen(port, () => {
