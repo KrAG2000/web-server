@@ -20,6 +20,7 @@ app.post('/webhook', async (req, res) => {
   console.log(req.body);
   // console.log(req.body["first name"]);
   console.log("----------------END----------------");
+  res.send("SUCCESS!");
 });
 
 app.listen(port, () => {
