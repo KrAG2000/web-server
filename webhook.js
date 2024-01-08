@@ -17,8 +17,8 @@ app.get("/", (req, res) => {
 
 app.post('/webhook', async (req, res) => {
   console.log("----------------START----------------");
-  console.log(req.body["messenger user id"]);
-  console.log(req.body["first name"]);
+  console.log(req);
+  // console.log(req.body["first name"]);
   console.log("----------------END----------------");
 );
 
