@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   // res.sendFile(__dirname + "/index2.html");
 });
 
-app.post('/webhook', async (req, res) => {
+app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
   console.log(req.headers.email, ":", req.body);
   console.log("----------------END----------------");
