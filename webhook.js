@@ -19,7 +19,7 @@ app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
   console.log(req.body);
   console.log("----------------END----------------");
-  res.status(200).send("Success!");
+  res.send({"statusCode": "It's 204, No data!"});
 });
 
 app.listen(port, () => {
