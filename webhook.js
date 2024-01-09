@@ -13,12 +13,23 @@ app.get("/", (req, res) => {
   // res.sendFile(__dirname + "/index2.html");
 });
 
-app.post('/webhook', (req, res) => {
-    console.log("----------------START----------------");
-    console.log(req.body);
-    console.log("----------------END----------------");
-    res.send({"statusCode": "It's 204, No data!"});
-  });
+app.post('/webhook', async (req, res) => {
+
+  const { email } = req.headers
+  const domain = req.headers.origin
+
+  if (
+    !req.body ||
+    !email ||
+    email.trim() === '' ||
+    !/^\S+@\S+\.\S+$/.test(email)
+  ) {
+    res.send({"status": 400, "error": "Bad request error!"});
+  }
+  else{
+    res.send({"status": 200, "body": req.body})
+  }
+});
 
 app.listen(port, () => {
   console.log(`[ INFO ] - [200] - Listening to ${port} server successful!`);
