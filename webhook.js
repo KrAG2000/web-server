@@ -27,6 +27,7 @@ app.post('/webhook', async (req, res) => {
     res.send({"status": 400, "error": "Bad request error!"});
   }
   else{
+    console.log(req.body["first name"])
     res.send({"status": 200, "body": req.body})
   }
 });
