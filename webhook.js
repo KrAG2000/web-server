@@ -17,8 +17,9 @@ app.get("/", (req, res) => {
 
 app.post('/webhook', (req, res) => {
   console.log("----------------START----------------");
-  let v = res;
-  console.log(v);
+  req.on(data => {
+  console.log(data);
+  })
   console.log("----------------END----------------");
   res.status(200).send("Success!");
 });
