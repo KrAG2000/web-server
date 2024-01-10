@@ -18,18 +18,18 @@ app.post('/webhook', async (req, res) => {
   const { email } = req.headers
   const domain = req.headers.origin
 
-  if (
-    !req.body ||
-    !email ||
-    email.trim() === '' ||
-    !/^\S+@\S+\.\S+$/.test(email)
-  ) {
-    res.send({"status": 400, "error": "Bad request error!"});
-  }
-  else{
-    console.log(req.body["first name"])
-    res.send({"status": 200, "body": req.body})
-  }
+  // if (
+  //   !req.body ||
+  //   !email ||
+  //   email.trim() === '' ||
+  //   !/^\S+@\S+\.\S+$/.test(email)
+  // ) {
+  //   res.send({"status": 400, "error": "Bad request error!"});
+  // }
+  // else{
+    console.log(req.body)
+    res.send({"status": 200})
+  // }
 });
 
 app.listen(port, () => {
