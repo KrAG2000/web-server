@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
 
 app.post('/webhook', async (req, res) => {
 
-  const { email } = req.headers
-  const domain = req.headers.origin
+  // const { email } = req.headers
+  // const domain = req.headers.origin
 
   // if (
   //   !req.body ||
