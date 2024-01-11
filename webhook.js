@@ -10,13 +10,24 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
-  // res.sendFile(__dirname + "/index2.html");
 });
 
 app.post('/webhook', (req, res) => {
-    console.log("BODY: ", req.body.email);
-    console.log("EMAIL: ", req.headers.email);
-    res.send({"status": 200, "body": req.body});
+  const myTimeout = setTimeout(() => {
+    if(req && req.body){
+      console.log("Hi, req.body present!);
+      console.log("Email from body: ", req.body.email);
+      console.log("Email from headers: ", req.headers.email);
+    }
+    else if(req && !req.body){
+      console.log("request here but no req.body!!");
+    }
+    else{
+      console.log("No request at all!!!");
+    }
+  }, 9500);
+
+  
 });
 
 app.listen(port, () => {
