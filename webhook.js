@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.post('/webhook', async (req, res) => {
-  console.log(req ? req : "No request payload!")
+  console.log(req ? req.body['messenger user id'] : "No request payload!")
   setTimeout((req) => {
     console.log("Inside sto!");
     if(req && req.body){
