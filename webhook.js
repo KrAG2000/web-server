@@ -12,8 +12,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.post('/webhook', (req, res) => {
-  const myTimeout = setTimeout(() => {
+app.post('/webhook', async (req, res) => {
+  console.log(req ? req : "No request payload!")
+  setTimeout((req) => {
+    console.log("Inside sto!);
     if(req && req.body){
       console.log("Hi, req.body present!");
       console.log("MUID from body: ", req.body['messenger user id']);
@@ -26,6 +28,7 @@ app.post('/webhook', (req, res) => {
     else{
       console.log("No request at all!!!");
     }
+    console.log("End of sto!);
   }, 9500);
 
   
