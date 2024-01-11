@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-    console.log("BODY: ", req.body);
+    console.log("BODY: ", req.body.email);
     console.log("EMAIL: ", req.headers.email);
     res.send({"status": 200, "body": req.body});
 });
