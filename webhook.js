@@ -14,23 +14,9 @@ app.get("/", (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-
-  // const { email } = req.headers
-  // const domain = req.headers.origin
-
-  // if (
-  //   !req.body ||
-  //   !email ||
-  //   email.trim() === '' ||
-  //   !/^\S+@\S+\.\S+$/.test(email)
-  // ) {
-  //   res.send({"status": 400, "error": "Bad request error!"});
-  // }
-  // else{
     console.log("BODY: ", req.body);
     console.log("EMAIL: ", req.headers.email);
     res.send({"status": 200, "body": req.body});
-  // }
 });
 
 app.listen(port, () => {
