@@ -16,8 +16,9 @@ app.post('/webhook', (req, res) => {
   const myTimeout = setTimeout(() => {
     if(req && req.body){
       console.log("Hi, req.body present!");
-      console.log("Email from body: ", req.body.email);
-      console.log("Email from headers: ", req.headers.email);
+      console.log("MUID from body: ", req.body['messenger user id']);
+      console.log("First name from body: ", req.body['first name']);
+      console.log("Email from headers: ", req.headers['email']);
     }
     else if(req && !req.body){
       console.log("request here but no req.body!!");
