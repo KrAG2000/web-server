@@ -30,7 +30,7 @@ app.post('/webhook', async (req, res) => {
       console.log("No request at all!!!");
     }
     console.log("End of sto!");
-  }, 9500);
+  }, 5000);
 
   
 });
