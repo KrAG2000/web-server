@@ -28,6 +28,7 @@ app.post('/webhook', (req, res) => {
   // }
   // else{
     console.log(req.body)
+    console.log(req.headers.email)
     res.send({"status": 200})
   // }
 });
