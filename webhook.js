@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 app.post('/webhook', (req, res) => {
   const myTimeout = setTimeout(() => {
     if(req && req.body){
-      console.log("Hi, req.body present!);
+      console.log("Hi, req.body present!");
       console.log("Email from body: ", req.body.email);
       console.log("Email from headers: ", req.headers.email);
     }
