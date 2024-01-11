@@ -15,13 +15,13 @@ app.get("/", (req, res) => {
 app.post('/webhook', async (req, res) => {
   console.log(req ? req : "No request payload!")
   setTimeout((req) => {
-    console.log("Inside sto!);
+    console.log("Inside sto!");
     if(req && req.body){
       console.log("Hi, req.body present!");
       console.log("MUID from body: ", req.body['messenger user id']);
       console.log("First name from body: ", req.body['first name']);
       console.log("Email from headers: ", req.headers['email']);
-      res.send({ "status": 200, "data": "req.body['first name']" });
+      res.send({ "status": 200, "data": req.body['first name'] });
     }
     else if(req && !req.body){
       console.log("request here but no req.body!!");
@@ -29,7 +29,7 @@ app.post('/webhook', async (req, res) => {
     else{
       console.log("No request at all!!!");
     }
-    console.log("End of sto!);
+    console.log("End of sto!");
   }, 9500);
 
   
