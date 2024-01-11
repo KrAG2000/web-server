@@ -27,9 +27,9 @@ app.post('/webhook', (req, res) => {
   //   res.send({"status": 400, "error": "Bad request error!"});
   // }
   // else{
-    console.log(req.body)
-    console.log(req.headers.email)
-    res.send({"status": 200})
+    console.log("BODY: ", req.body);
+    console.log("EMAIL: ", req.headers.email);
+    res.send({"status": 200, "body": req.body});
   // }
 });
 
