@@ -11,7 +11,7 @@ window.unomiOption = {
 const testBtn = document.getElementByTagName("a");
 
 testBtn.map((tagarray) => {
-    tagarray.addEventListener("click", () => {
+    return tagarray.addEventListener("click", () => {
         unomiTracker.track("customButtonEvent");
     });
 }
