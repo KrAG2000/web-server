@@ -1,12 +1,14 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const port = process.env.PORT || 9999;
 
 const app = express();
 app.use(express.static(path.join(__dirname, '/')));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
