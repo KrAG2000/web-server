@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/img/favicon.ico", () => {
+  console.log("Favicon ICO");
+})
+
 app.post('/webhook', (req, res) => {
   console.log("Started!");
     if(req && req.body){
