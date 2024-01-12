@@ -14,11 +14,20 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/img/favicon.ico", () => {
-  console.log("Favicon ICO");
-})
+let data;
+app.get("/data", (req, res) => {
+  if(data){  
+  res.send({
+    "data": data
+  });
+  }
+  else{
+    res.send({"message": "No data"})
+  }
+});
 
 app.post('/webhook', (req, res) => {
+  data = req.body;
   console.log("Started!");
     if(req && req.body){
       console.log("Hi, req.body present!");
@@ -34,8 +43,7 @@ app.post('/webhook', (req, res) => {
     else{
       console.log("No request at all!!!");
       res.send({status: 400});
-    }
-  
+    }  
 });
 
 app.listen(port, () => {
