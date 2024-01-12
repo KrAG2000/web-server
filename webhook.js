@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-  console.log(req ? req.body['messenger user id'] : "No request payload!")
+  console.log("Started!");
     if(req && req.body){
       console.log("Hi, req.body present!");
       console.log("MUID from body: ", req.body['messenger user id']);
@@ -23,10 +23,13 @@ app.post('/webhook', (req, res) => {
     }
     else if(req && !req.body){
       console.log("request here but no req.body!!");
+      res.send({status: 400});
     }
     else{
       console.log("No request at all!!!");
+      res.send({status: 400});
     }
+  
 });
 
 app.listen(port, () => {
