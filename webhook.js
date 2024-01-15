@@ -26,25 +26,25 @@ app.get("/data", (req, res) => {
   }
 });
 
-app.post('/webhook', (req, res) => {
-  data = req.body;
-  console.log("Started!");
+app.post('/webhook', async (req, res) => {
+  let result = 0
+  console.log("**********");
     if(req && req.body){
       console.log("Hi, req.body present!");
       console.log("MUID from body: ", req.body['messenger user id']);
       console.log("First name from body: ", req.body['first name']);
       console.log("Email from headers: ", req.headers['email']);
-      // res.send({status: 200});
-      res.sendStatus( 200 )
+      result = 200
     }
     else if(req && !req.body){
       console.log("request here but no req.body!!");
-      res.sendStatus( 204 )
+      result = 204
     }
     else{
       console.log("No request at all!!!");
-      res.sendStatus( 400 )
+      result = 400
     }  
+  res.send({status: result})
 });
 
 app.listen(port, () => {
