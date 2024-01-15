@@ -44,6 +44,7 @@ app.post('/webhook', async (req, res) => {
       console.log("No request at all!!!");
       result = 400
     }  
+  console.log(result);
   res.send({status: result})
 });
 
