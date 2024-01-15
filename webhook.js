@@ -31,9 +31,9 @@ app.post('/webhook', async (req, res) => {
   console.log("**********");
     if(req && req.body){
       console.log("Hi, req.body present!");
-      console.log("MUID from body: ", req.body['messenger user id']);
-      console.log("First name from body: ", req.body['first name']);
-      console.log("Email from headers: ", req.headers['email']);
+      console.log("MUID from body: ", req);
+      // console.log("First name from body: ", req.body['first name']);
+      // console.log("Email from headers: ", req.headers['email']);
       result = 200
     }
     else if(req && !req.body){
