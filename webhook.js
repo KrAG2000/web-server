@@ -34,15 +34,16 @@ app.post('/webhook', (req, res) => {
       console.log("MUID from body: ", req.body['messenger user id']);
       console.log("First name from body: ", req.body['first name']);
       console.log("Email from headers: ", req.headers['email']);
-      res.send({status: 200});
+      // res.send({status: 200});
+      res.sendStatus( 200 )
     }
     else if(req && !req.body){
       console.log("request here but no req.body!!");
-      res.send({status: 400});
+      res.sendStatus( 204 )
     }
     else{
       console.log("No request at all!!!");
-      res.send({status: 400});
+      res.sendStatus( 400 )
     }  
 });
 
